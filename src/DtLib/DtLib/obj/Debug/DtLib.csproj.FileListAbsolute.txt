@@ -1,0 +1,5 @@
+C:\dev\DtUtils\src\DtLib\DtLib\bin\Debug\DtLib.dll
+C:\dev\DtUtils\src\DtLib\DtLib\bin\Debug\DtLib.pdb
+C:\dev\DtUtils\src\DtLib\DtLib\obj\Debug\DtLib.csprojResolveAssemblyReference.cache
+C:\dev\DtUtils\src\DtLib\DtLib\obj\Debug\DtLib.dll
+C:\dev\DtUtils\src\DtLib\DtLib\obj\Debug\DtLib.pdb
