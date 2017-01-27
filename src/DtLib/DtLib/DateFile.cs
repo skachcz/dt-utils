@@ -9,7 +9,9 @@ namespace DtLib
 {
     public class DateFile
     {
-        public string Filename;
+        public string Filename { get; set; }
+        public string FilePath { get; set; }
+
         public DateTime DateCreated { get; set; }
         public DateTime DateAccessed { get; set; }
         public DateTime DateModified { get; set; }
@@ -20,6 +22,13 @@ namespace DtLib
         /// <param name="filePath"></param>
         public DateFile(string filePath)
         {
+            if (!File.Exists(filePath))
+            {
+                throw new FileNotFoundException("FIle not found", filePath);
+            }
+
+            FilePath = filePath;
+
             try
             {
                 FileInfo fileInfo = new FileInfo(filePath);
@@ -52,6 +61,13 @@ namespace DtLib
             DateCreated = fileInfo.CreationTime;
             DateAccessed = fileInfo.LastAccessTime;
             DateModified = fileInfo.LastWriteTime;
+        }
+
+        public void WriteDateAttributes()
+        {
+            File.SetCreationTime(FilePath, DateCreated);
+            File.SetLastWriteTime(FilePath, DateModified);
+            File.SetLastAccessTime(FilePath, DateAccessed);
         }
 
 
