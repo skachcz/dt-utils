@@ -24,7 +24,7 @@ namespace DtLib
         {
             if (!File.Exists(filePath))
             {
-                throw new FileNotFoundException("FIle not found", filePath);
+                throw new FileNotFoundException("File not found", filePath);
             }
 
             FilePath = filePath;
