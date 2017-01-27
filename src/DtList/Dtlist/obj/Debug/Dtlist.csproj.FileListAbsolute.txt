@@ -1,8 +1,0 @@
-C:\dev\DtUtils\src\DtList\Dtlist\bin\Debug\Dtlist.exe.config
-C:\dev\DtUtils\src\DtList\Dtlist\bin\Debug\Dtlist.exe
-C:\dev\DtUtils\src\DtList\Dtlist\bin\Debug\Dtlist.pdb
-C:\dev\DtUtils\src\DtList\Dtlist\bin\Debug\DtLib.dll
-C:\dev\DtUtils\src\DtList\Dtlist\bin\Debug\DtLib.pdb
-C:\dev\DtUtils\src\DtList\Dtlist\obj\Debug\Dtlist.csprojResolveAssemblyReference.cache
-C:\dev\DtUtils\src\DtList\Dtlist\obj\Debug\Dtlist.exe
-C:\dev\DtUtils\src\DtList\Dtlist\obj\Debug\Dtlist.pdb
