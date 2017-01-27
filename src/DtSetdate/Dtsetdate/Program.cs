@@ -22,6 +22,12 @@ namespace Dtsetdate
 
         static void setAttributes(ArgsData argd)
         {
+            if (argd.ValueArgs.Count != 2)
+            {
+                msg(Messages.getText(Messages.ERR_ARG_WRONG_NUMBER, new object[] { "Use: <filepath> <datetime> -set=<attributes>" }));
+                return;
+            }
+
             string path = argd.ValueArgs[0].Value;
 
             DateTime newDate;
@@ -29,40 +35,67 @@ namespace Dtsetdate
 
             if (dateIsOk) {
 
-                DateFile dt = new DateFile(path);
+                try {
 
-                if (argd.NamedArgs.ContainsKey("set"))
-                {
-                    string atts = argd.NamedArgs["set"].Value;
+                    DateFile dt = new DateFile(path);
 
-                    // only allowed characters
-                    if (atts.All(c => "acm".Contains(c)))
+                    if (argd.NamedArgs.ContainsKey("set"))
                     {
-                        if (atts.Contains("a"))
-                        {
-                            dt.DateAccessed = newDate;
-                        }
+                        string atts = argd.NamedArgs["set"].Value;
 
-                        if (atts.Contains("c"))
+                        // only allowed characters
+                        if (atts.All(c => "acm".Contains(c)))
                         {
-                            dt.DateCreated = newDate;
-                        }
+                            if (atts.Contains("a"))
+                            {
+                                dt.DateAccessed = newDate;
+                            }
 
-                        if (atts.Contains("m"))
+                            if (atts.Contains("c"))
+                            {
+                                dt.DateCreated = newDate;
+                            }
+
+                            if (atts.Contains("m"))
+                            {
+                                dt.DateModified = newDate;
+                            }
+
+                            dt.WriteDateAttributes();
+                        }
+                        else
                         {
-                            dt.DateModified = newDate;
+                            msg(Messages.getText(Messages.ERR_ARG_INVALID_VALUE, new object[] { "-set",
+                                "Allowed values: acm" }));
                         }
-
-                        dt.WriteDateAttributes();
                     }
                     else
                     {
-                        Console.WriteLine("Nepovolene parametry");
+                        msg(Messages.getText(Messages.ERR_ARG_IS_MANDATORY, new object[] { "-set",
+                                "Allowed values: acm" }));
                     }
+
                 }
 
+                catch(System.IO.FileNotFoundException exc)
+                {
+                    msg(Messages.getText(Messages.ERR_FILE_NOT_FOUND, new object[] { path }));
+                }
             }
+           }
 
+        static void msg(string text)
+        {
+            Console.WriteLine(text);
         }
+
+        static void printHelp()
+        {
+            string help = "";
+
+            msg(help);
+        }
+
+
     }
 }
