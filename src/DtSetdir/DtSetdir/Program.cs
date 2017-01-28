@@ -85,7 +85,7 @@ namespace DtSetdir
                             catch (ArgumentException exc)
                             {
                                 msg(Messages.getText(Messages.ERR_ARG_INVALID_VALUE, new object[] { "-offset",
-                                "Examples: +5s -10h +3d" }));
+                                "Examples: +5s -10h +3M -1Y" }));
                                 return;
                             }
                         }

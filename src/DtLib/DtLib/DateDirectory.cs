@@ -123,6 +123,8 @@ namespace DtLib
 
             foreach (var f in Files)
             {
+
+
                 if (SetDateAccessed)
                 {
                     f.DateAccessed = date;
@@ -138,7 +140,18 @@ namespace DtLib
                     f.DateModified = date;
                 }
 
-                f.WriteDateAttributes();
+                try
+                {
+                    f.WriteDateAttributes();
+                }
+
+                catch (System.IO.IOException exc)
+                {
+                    if (writeToConsole)
+                    {
+                        System.Console.WriteLine("ERROR: File " + f.FilePath + ", skipping.");
+                    }
+                }
 
                 if (offsetValue > 0)
                 {
