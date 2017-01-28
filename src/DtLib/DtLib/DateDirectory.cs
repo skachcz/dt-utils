@@ -10,9 +10,10 @@ namespace DtLib
 {
     public class DateDirectory
     {
-        private string offsetSign;
-        private string offsetValue;
+        private int offsetSign;
+        private int offsetValue;
         private string offsetUnit;
+
 
         public DateTime SetDate { get; set; }
         public string SetOffset
@@ -58,14 +59,23 @@ namespace DtLib
         /// <param name="offset"></param>
         private void setOffset(string offsetString)
         {
-            string pattern = "([+-])([0-9]+)([ymdhms])";
+            string pattern = "([+-])([0-9]+)([YMDhms])";
 
             Match match = Regex.Match(offsetString, pattern, RegexOptions.IgnoreCase);
 
             if (match.Success)
             {
-                offsetSign = match.Groups[1].Value;
-                offsetValue = match.Groups[2].Value;
+                string sign = match.Groups[1].Value;
+                if (sign == "-")
+                {
+                    offsetSign = -1;
+                }
+                else
+                {
+                    offsetSign = 1;
+                }
+
+                offsetValue = Convert.ToInt32(match.Groups[2].Value);
                 offsetUnit = match.Groups[3].Value;
             }
             else
@@ -76,6 +86,73 @@ namespace DtLib
             bool x = false;
         }
 
+        private DateTime addDate(DateTime date)
+        {
+            int offset = offsetValue * offsetSign;
+
+            switch (offsetUnit)
+            {
+                case "s":
+                    return date.AddSeconds(offset);
+                    break;
+                case "m":
+                    return date.AddMinutes(offset);
+                    break;
+                case "h":
+                    return date.AddHours(offset);
+                    break;
+                case "D":
+                    return date.AddDays(offset);
+                    break;
+                case "M":
+                    return date.AddMonths(offset);
+                    break;
+                case "Y":
+                    return date.AddYears(offset);
+                    break;
+                default:
+                    return date;
+                    break;
+            }
+        }
+
+
+        public void WriteDateAttributes(bool writeToConsole)
+        {
+            DateTime date = SetDate;
+
+            foreach (var f in Files)
+            {
+                if (SetDateAccessed)
+                {
+                    f.DateAccessed = date;
+                }
+
+                if (SetDateCreated)
+                {
+                    f.DateCreated = date;
+                }
+
+                if (SetDateModified)
+                {
+                    f.DateModified = date;
+                }
+
+                f.WriteDateAttributes();
+
+                if (offsetValue > 0)
+                {
+                    date = addDate(date);
+                }
+
+                if (writeToConsole)
+                {
+                    System.Console.WriteLine("File " + f.FilePath + " set.");
+                }
+
+            }
+
+        }
 
     }
 }

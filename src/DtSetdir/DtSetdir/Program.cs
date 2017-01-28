@@ -91,7 +91,7 @@ namespace DtSetdir
                         }
                         #endregion
 
-                        // dr.WriteDateAttributes();
+                        dr.WriteDateAttributes(true);
 
                     }
                     else
