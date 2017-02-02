@@ -50,7 +50,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\DtLib\DtLib\DtLib.csproj">
+    <ProjectReference Include="..\DtLib\DtLib.csproj">
       <Project>{b1b75850-12ff-4253-95a6-0b657e78442c}</Project>
       <Name>DtLib</Name>
     </ProjectReference>
