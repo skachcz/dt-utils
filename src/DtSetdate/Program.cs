@@ -9,22 +9,38 @@ namespace Dtsetdate
 {
     class Program
     {
+        public static bool NoOutput
+        {
+            get;
+            set;
+        }
+
+        public static bool IsError
+        {
+            get;
+            set;
+        }
+
         static void Main(string[] args)
         {
-
             ArgsData data = new ArgsData(args);
 
-            setAttributes(data);
+            processAttributes(data);
+
+            if (IsError) {
+                printHelp();
+            }
 
             Console.WriteLine("press key");
             Console.ReadLine();
         }
 
-        static void setAttributes(ArgsData argd)
+        static void processAttributes(ArgsData argd)
         {
             if (argd.ValueArgs.Count != 2)
             {
                 msg(Messages.getText(Messages.ERR_ARG_WRONG_NUMBER, new object[] { "Use: <filepath> <datetime> -set=<attributes>" }));
+                IsError = true;                
                 return;
             }
 
@@ -33,7 +49,12 @@ namespace Dtsetdate
             DateTime newDate;
             bool dateIsOk = DateTime.TryParse(argd.ValueArgs[1].Value, out newDate);
 
-            if (dateIsOk) {
+            if (argd.NamedArgs.ContainsKey("quiet"))
+            {
+                NoOutput = true;
+            }
+
+                if (dateIsOk) {
 
                 try {
 
@@ -67,12 +88,14 @@ namespace Dtsetdate
                         {
                             msg(Messages.getText(Messages.ERR_ARG_INVALID_VALUE, new object[] { "-set",
                                 "Allowed values: acm" }));
+                            IsError = true;
                         }
                     }
                     else
                     {
                         msg(Messages.getText(Messages.ERR_ARG_IS_MANDATORY, new object[] { "-set",
                                 "Allowed values: acm" }));
+                        IsError = true;
                     }
 
                 }
@@ -80,19 +103,39 @@ namespace Dtsetdate
                 catch(System.IO.FileNotFoundException exc)
                 {
                     msg(Messages.getText(Messages.ERR_FILE_NOT_FOUND, new object[] { path }));
+                    IsError = true;
                 }
             }
            }
 
         static void msg(string text)
         {
-            Console.WriteLine(text);
+            if (!NoOutput)
+            {
+                Console.WriteLine(text);
+            }
         }
 
         static void printHelp()
         {
-            string help = "";
+            string help = Messages.INFO_UTILITY_NAME +
+@"
+Dtsetdate - sets date attributes for file
 
+Use:
+dtsetdate <filename> <date> <arguments>
+
+Mandatory arguments:
+-set=<values>  = which date atributte(s) will be changed
+                 Possible values:
+                    a - accessed
+                    c - created
+                    m - modified
+                Values can be combined - example: -set=am
+
+Optional arguments:
+-quiet  = no output
+";
             msg(help);
         }
 
