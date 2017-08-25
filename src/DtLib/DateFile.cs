@@ -57,6 +57,8 @@ namespace DtLib
         /// <param name="fileInfo"></param>
         private void setPars(FileInfo fileInfo)
         {
+            fileInfo.IsReadOnly = false; // abychom mohli menit atributy
+
             Filename = fileInfo.Name;
             DateCreated = fileInfo.CreationTime;
             DateAccessed = fileInfo.LastAccessTime;
@@ -65,6 +67,7 @@ namespace DtLib
 
         public void WriteDateAttributes()
         {
+
             File.SetCreationTime(FilePath, DateCreated);
             File.SetLastWriteTime(FilePath, DateModified);
             File.SetLastAccessTime(FilePath, DateAccessed);
