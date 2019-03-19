@@ -24,9 +24,13 @@ namespace DtGUI
 
         private string selectedDirectory;
 
+        private string lastDirectory;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            this.lastDirectory = "g:\\PAL\\knihy\\_MP3";
 
             comboBoxSign.Items.Add("+");
             comboBoxSign.Items.Add("-");
@@ -57,10 +61,14 @@ namespace DtGUI
 
             using (var dialog = new FolderBrowserDialog())
             {
+                dialog.SelectedPath = this.lastDirectory;
+                
                 DialogResult result = dialog.ShowDialog();
+
                 if (result == System.Windows.Forms.DialogResult.OK)
                 {
                     path = dialog.SelectedPath;
+                    this.lastDirectory = path;
                     fillList(path, "*.*");
                     
                 }
