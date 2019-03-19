@@ -30,7 +30,7 @@ namespace DtGUI
         {
             InitializeComponent();
 
-            this.lastDirectory = "g:\\PAL\\knihy\\_MP3";
+            this.lastDirectory = System.Configuration.ConfigurationManager.AppSettings["startupDirectory"];
 
             comboBoxSign.Items.Add("+");
             comboBoxSign.Items.Add("-");
