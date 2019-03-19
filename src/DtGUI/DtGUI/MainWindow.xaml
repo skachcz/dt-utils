@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DtGUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="480" Width="680">
+        Title="DT GUI" Height="480" Width="680"
+        Icon="dtico_fUk_icon.ico">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="400"/>
