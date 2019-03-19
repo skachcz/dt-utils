@@ -5,21 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DtGUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="480" Width="640">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="5*"/>
-            <ColumnDefinition Width="9*"/>
-            <ColumnDefinition Width="13*"/>
-            <ColumnDefinition Width="491*"/>
+            <ColumnDefinition Width="480"/>
+            <ColumnDefinition Width="140*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="buttonSelectDir" Content="Select directory" HorizontalAlignment="Left" Margin="354.8,289,0,0" VerticalAlignment="Top" Width="120" Click="buttonSelectDir_Click" Grid.Column="3"/>
-        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="250" Margin="4.8,62,0,0" VerticalAlignment="Top" Width="361" Grid.ColumnSpan="3" Grid.Column="1"/>
-        <TextBox x:Name="textBoxValue" HorizontalAlignment="Left" Height="23" Margin="81.8,9,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="85" Grid.Column="3"/>
-        <ComboBox x:Name="comboBoxSign" HorizontalAlignment="Left" Margin="4.8,10,0,0" VerticalAlignment="Top" Width="85" Grid.ColumnSpan="3" Grid.Column="1"/>
+        <Button x:Name="buttonSelectDir" Content="Select directory" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="120" Click="buttonSelectDir_Click" Grid.Column="1"/>
+        <ListBox x:Name="listBox" HorizontalAlignment="Left"  Margin="4.8,62,0,0" VerticalAlignment="Top" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"  Grid.ColumnSpan="3" Grid.Column="0"/>
+        <TextBox x:Name="textBoxValue" HorizontalAlignment="Left" Height="23" Margin="99,9,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="85" Grid.Column="0"/>
+        <ComboBox x:Name="comboBoxSign" HorizontalAlignment="Left" Margin="4.8,10,0,0" VerticalAlignment="Top" Width="85" Grid.ColumnSpan="1" Grid.Column="0"/>
         <ComboBox x:Name="comboBoxUnit" HorizontalAlignment="Left" Margin="181.8,10,0,0" VerticalAlignment="Top" Width="120" Grid.Column="3"/>
-        <Button x:Name="buttonConvert" Content="Convert" HorizontalAlignment="Left" Margin="318.8,10,0,0" VerticalAlignment="Top" Width="75" Click="buttonConvert_Click" Grid.Column="3"/>
-        <Label x:Name="labelDir" Content="" HorizontalAlignment="Left" Margin="4.8,36,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <Button x:Name="buttonConvert" Content="Convert" HorizontalAlignment="Left" Margin="397,10,0,0" VerticalAlignment="Top" Width="75" Click="buttonConvert_Click" Grid.Column="0"/>
+        <Label x:Name="labelDir" Content="" HorizontalAlignment="Left" Margin="4.8,36,0,0" VerticalAlignment="Top" Grid.ColumnSpan="1" Grid.Column="0"/>
 
     </Grid>
 </Window>
