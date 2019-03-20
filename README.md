@@ -8,7 +8,7 @@ Documentation: https://vladimir.skach.cz/dt-utils
 
 # Command line utilities
 
-#DtDate
+# DtDate
 
 Returns current date and time
 
@@ -26,7 +26,7 @@ Default: yyyy-MM-dd-HH-mm
   10-12  
 
 
-#DTlist
+# DTlist
 
 Lists files in directory with all times
 
@@ -39,7 +39,7 @@ created         accessed        modified        filename
 2019-03-19 11:05:04     2019-03-19 11:05:04     2019-03-19 9:57:36      DtLib.dll  
 2019-03-20 10:19:49     2019-03-20 10:19:49     2019-03-20 10:19:35     Dtlist.exe  
 
-#DTsetdate
+# DTsetdate
 
 Set date(s) for specific file
 
@@ -85,6 +85,6 @@ Created                 Accessed                Modified                Filename
 2016-07-08 10:00:05     2016-07-08 10:00:05     2016-07-08 10:00:05     testfile2.txt  
 2016-07-08 10:00:10     2016-07-08 10:00:10     2016-07-08 10:00:10     testfile3.txt  
   
-#DTsetdir  
+# DTsetdir  
   
 GUI application with the same ability as DTsetdir 
