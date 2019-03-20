@@ -46,7 +46,7 @@ namespace DtLib
         public ArgsItem (string arg, int order)
         {
 
-            if (arg[0] == '-')
+            if ( (!String.IsNullOrEmpty(arg)) && (arg[0] == '-'))
             {
                 IsNamedArgument = true;
 

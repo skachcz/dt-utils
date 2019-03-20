@@ -31,8 +31,8 @@ namespace Dtsetdate
                 printHelp();
             }
 
-            Console.WriteLine("press key");
-            Console.ReadLine();
+            // Console.WriteLine("press key");
+            // Console.ReadLine();
         }
 
         static void processAttributes(ArgsData argd)
