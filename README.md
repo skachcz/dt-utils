@@ -13,13 +13,13 @@ https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time
 
 Default: yyyy-MM-dd-HH-mm
 
-  >DtDate  
+  >> DtDate  
   2019-03-20-10-03  
   
-  >DtDate --format="{0:yyyy}-{0:MM}"  
+  >> DtDate --format="{0:yyyy}-{0:MM}"  
   2019-03  
   
-  >DtDate --format="{0:HH}-{0:mm}"  
+  >> DtDate --format="{0:HH}-{0:mm}"  
   10-12  
 
 
@@ -27,7 +27,7 @@ Default: yyyy-MM-dd-HH-mm
 
 Lists files in directory with all times
 
-C:\winapps\dt-utils>DTlist  
+>> DTlist  
 created         accessed        modified        filename  
 2019-03-20 10:02:42     2019-03-20 10:02:42     2019-03-20 10:16:40     DtDate.exe  
 2019-03-19 10:53:29     2019-03-19 10:53:29     2019-03-19 11:04:02     DtGUI.exe  
@@ -40,19 +40,19 @@ created         accessed        modified        filename
 
 Set date(s) for specific file
 
-  >Dtlist.exe C:\i  
+>> Dtlist.exe C:\i  
 Created                 Accessed                Modified                Filename  
 2019-03-20 11:01:55     2019-03-20 11:01:55     2019-03-20 11:01:57     testfile.txt  
   
 >Dtsetdate.exe "C:\i\testfile.txt" "2018-01-01" -set=c  
   
-  >Dtlist.exe C:\i  
+>> Dtlist.exe C:\i  
 Created                 Accessed                Modified                Filename  
 2018-01-01 0:00:00      2019-03-20 11:01:55     2019-03-20 11:01:57     testfile.txt  
 
->Dtsetdate.exe "C:\i\testfile.txt" "2016-10-01 12:34:56" -set=acm  
+>> Dtsetdate.exe "C:\i\testfile.txt" "2016-10-01 12:34:56" -set=acm  
   
->Dtlist.exe C:\i  
+>> Dtlist.exe C:\i  
 Created                 Accessed                Modified                Filename  
 2016-10-01 12:34:56     2016-10-01 12:34:56     2016-10-01 12:34:56     testfile.txt  
   
@@ -60,23 +60,23 @@ Created                 Accessed                Modified                Filename
 
 Set date(s) for files in directory
   
-  >Dtlist.exe c:\i  
+>> Dtlist.exe c:\i  
 Created                 Accessed                Modified                Filename  
 2016-10-01 12:34:56     2016-10-01 12:34:56     2016-10-01 12:34:56     testfile1.txt  
 2019-03-20 11:12:45     2019-03-20 11:12:45     2019-03-20 11:12:46     testfile2.txt  
 2019-03-20 11:13:00     2019-03-20 11:13:00     2019-03-20 11:13:01     testfile3.txt  
   
->DtSetdir "C:\i" "*.*" "2016-07-08 10:00:00" -set=acm  
+>> DtSetdir "C:\i" "*.*" "2016-07-08 10:00:00" -set=acm  
   
->Dtlist c:\i  
+>> Dtlist c:\i  
 Created                 Accessed                Modified                Filename  
 2016-07-08 10:00:00     2016-07-08 10:00:00     2016-07-08 10:00:00     testfile1.txt  
 2016-07-08 10:00:00     2016-07-08 10:00:00     2016-07-08 10:00:00     testfile2.txt  
 2016-07-08 10:00:00     2016-07-08 10:00:00     2016-07-08 10:00:00     testfile3.txt  
   
->DtSetdir "C:\i" "*.*" "2016-07-08 10:00:00" -set=acm -offset=+5s  
+>> DtSetdir "C:\i" "*.*" "2016-07-08 10:00:00" -set=acm -offset=+5s  
   
->Dtlist c:\i  
+>> Dtlist c:\i  
 Created                 Accessed                Modified                Filename  
 2016-07-08 10:00:00     2016-07-08 10:00:00     2016-07-08 10:00:00     testfile1.txt  
 2016-07-08 10:00:05     2016-07-08 10:00:05     2016-07-08 10:00:05     testfile2.txt  
