@@ -5,15 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DtGUI"
         mc:Ignorable="d"
-        Title="DT GUI" Height="480" Width="680"
-        Icon="dtico_fUk_icon.ico">
-    <Grid>
+        Title="DT GUI (C) Vladimír Škach" Height="480" Width="680"
+        Icon="dtico_fUk_icon.ico"
+        MinWidth="560"
+        >
+    <Grid Name="Grid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="400"/>
             <ColumnDefinition Width="160*"/>
         </Grid.ColumnDefinitions>
         <Button x:Name="buttonSelectDir" Content="Select directory" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="120" Click="buttonSelectDir_Click" Grid.Column="1"/>
-        <ListBox x:Name="listBox" HorizontalAlignment="Left"  Margin="4.8,62,0,0" VerticalAlignment="Top" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"  Grid.ColumnSpan="3" Grid.Column="0"/>
+        <ListBox x:Name="listBox" HorizontalAlignment="Left"  Margin="4.8,62,0,0" VerticalAlignment="Top" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"  Grid.ColumnSpan="1" Grid.Column="0"/>
         <TextBox x:Name="textBoxValue" HorizontalAlignment="Left" Height="23" Margin="99,9,16,10" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="85" Grid.Column="0"/>
         <ComboBox x:Name="comboBoxSign" HorizontalAlignment="Left" Margin="4.8,10,0,0" VerticalAlignment="Top" Width="85" Grid.ColumnSpan="1" Grid.Column="0"/>
         <ComboBox x:Name="comboBoxUnit" HorizontalAlignment="Left" Margin="189,10,0,0" VerticalAlignment="Top" Width="120"/>

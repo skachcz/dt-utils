@@ -89,7 +89,17 @@ namespace DtGUI
                 listBox.Items.Add(file.Filename);
             }
 
+            // var col = Grid.GetColumnSpan(listBox);
+
+            // var col = Grid.ColumnDefinitions[1].ActualWidth.ToString - 50
+            listBox.Width = Grid.ColumnDefinitions[0].ActualWidth - 10;
+
             return true;
+        }
+
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            listBox.Width = Grid.ColumnDefinitions[0].ActualWidth - 10;
         }
 
         private void buttonConvert_Click(object sender, RoutedEventArgs e)
