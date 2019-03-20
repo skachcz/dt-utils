@@ -20,6 +20,13 @@ namespace DtDate
                 format = data.NamedArgs["format"].Value;
             }
 
+            if (String.IsNullOrEmpty(format))
+            {
+                Console.WriteLine(Messages.getText(Messages.ERR_ARG_INVALID_VALUE,
+                new object[] { "-format", "Visit: https://msdn.microsoft.com/en-us/library/8kb3ddd4(v=vs.110).aspx" }));
+                return;
+            }
+
             try
             {
                 Console.WriteLine(String.Format(format, DateTime.Now));
@@ -31,7 +38,7 @@ namespace DtDate
                     new object[] { "-format", "Visit: https://msdn.microsoft.com/en-us/library/8kb3ddd4(v=vs.110).aspx" }));
             }
 
-            Console.ReadLine();
+            // Console.ReadLine();
 
         }
     }
