@@ -15,8 +15,8 @@ namespace DtSetdir
 
             setAttributes(data);
 
-            Console.WriteLine("press key");
-            Console.ReadLine();
+            // Console.WriteLine("press key");
+            // Console.ReadLine();
         }
 
         static void setAttributes(ArgsData argd)
