@@ -36,5 +36,25 @@ created         accessed        modified        filename
 2019-03-19 11:05:04     2019-03-19 11:05:04     2019-03-19 9:57:36      DtLib.dll
 2019-03-20 10:19:49     2019-03-20 10:19:49     2019-03-20 10:19:35     Dtlist.exe
 
+#DTsetdate
+
+Set date(s) for specific file
+
+>Dtlist.exe C:\i
+Created                 Accessed                Modified                Filename
+2019-03-20 11:01:55     2019-03-20 11:01:55     2019-03-20 11:01:57     testfile.txt
+
+>Dtsetdate.exe "C:\i\testfile.txt" "2018-01-01" -set=c
+
+>Dtlist.exe C:\i
+Created                 Accessed                Modified                Filename
+2018-01-01 0:00:00      2019-03-20 11:01:55     2019-03-20 11:01:57     testfile.txt
+
+>Dtsetdate.exe "C:\i\testfile.txt" "2016-10-01 12:34:56" -set=acm
+
+>Dtlist.exe C:\i
+Created                 Accessed                Modified                Filename
+2016-10-01 12:34:56     2016-10-01 12:34:56     2016-10-01 12:34:56     testfile.txt
+
 
 
