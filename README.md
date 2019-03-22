@@ -1,10 +1,14 @@
 # dt-utils
 
-A set of Windows utilities for date and time manipulation.
+A set of Windows utilities for file date and time manipulation.
 
+Version: 1.0.0
 Author: Vladimir Skach
 
-Documentation: https://vladimir.skach.cz/dt-utils
+Documentation and binaries: https://vladimir.skach.cz/dt-utils
+
+In Windows, every file has three datetime attributes - created, last modified, and last accessed.
+I created this set of utilities to list and manipulate mentioned dates.
 
 # Command line utilities
 
@@ -31,7 +35,7 @@ Default: yyyy-MM-dd-HH-mm
 Lists files in directory with all times
 
 &gt; DTlist  
-created         accessed        modified        filename  
+created                 accessed                modified                filename  
 2019-03-20 10:02:42     2019-03-20 10:02:42     2019-03-20 10:16:40     DtDate.exe  
 2019-03-19 10:53:29     2019-03-19 10:53:29     2019-03-19 11:04:02     DtGUI.exe  
 2019-03-19 10:53:29     2019-03-19 10:53:29     2019-03-19 9:58:47      DtGUI.exe.config  
