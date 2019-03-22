@@ -63,7 +63,7 @@ Created                 Accessed                Modified                Filename
 Created                 Accessed                Modified                Filename  
 2016-10-01 12:34:56     2016-10-01 12:34:56     2016-10-01 12:34:56     testfile.txt  
   
-#DTsetdir
+# DTsetdir
 
 Set date(s) for files in directory
   
@@ -89,6 +89,8 @@ Created                 Accessed                Modified                Filename
 2016-07-08 10:00:05     2016-07-08 10:00:05     2016-07-08 10:00:05     testfile2.txt  
 2016-07-08 10:00:10     2016-07-08 10:00:10     2016-07-08 10:00:10     testfile3.txt  
   
-# DTsetdir  
+# DTGUI  
   
 GUI application with the same ability as DTsetdir 
+
+![Application screenshot](https://vladimir.skach.cz/files/original/docs/dt-gui.jpg)
