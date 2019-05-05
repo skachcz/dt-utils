@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,6 +33,17 @@ namespace DtGUI
 
             this.lastDirectory = System.Configuration.ConfigurationManager.AppSettings["startupDirectory"];
 
+            string[] cmdArgs = Environment.GetCommandLineArgs();
+
+            if (cmdArgs.Length > 1)
+            {
+                string path = cmdArgs[1];
+                if(Directory.Exists(path))
+                {
+                    this.lastDirectory = path;
+                }
+            }
+            
             comboBoxSign.Items.Add("+");
             comboBoxSign.Items.Add("-");
             comboBoxSign.SelectedIndex = 0;
