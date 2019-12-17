@@ -29,20 +29,13 @@ namespace DtGUI
 
         public MainWindow()
         {
+            Loaded += MainWindow_Loaded;
             InitializeComponent();
 
             this.lastDirectory = System.Configuration.ConfigurationManager.AppSettings["startupDirectory"];
 
             string[] cmdArgs = Environment.GetCommandLineArgs();
 
-            if (cmdArgs.Length > 1)
-            {
-                string path = cmdArgs[1];
-                if(Directory.Exists(path))
-                {
-                    this.lastDirectory = path;
-                }
-            }
             
             comboBoxSign.Items.Add("+");
             comboBoxSign.Items.Add("-");
@@ -63,9 +56,30 @@ namespace DtGUI
 
             selectedDirectory = "";
 
+            if (cmdArgs.Length > 1)
+            {
+                string path = cmdArgs[1];
+
+                if (Directory.Exists(path))
+                {
+                    this.lastDirectory = path;
+                }
+            }
+
         }
 
-        
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            var i = 0;
+
+            if (!String.IsNullOrEmpty(this.lastDirectory))
+            {
+                fillList(this.lastDirectory, "*.*");
+            }
+
+        }
+
+
 
         private void buttonSelectDir_Click(object sender, RoutedEventArgs e)
         {
@@ -104,7 +118,8 @@ namespace DtGUI
             // var col = Grid.GetColumnSpan(listBox);
 
             // var col = Grid.ColumnDefinitions[1].ActualWidth.ToString - 50
-            listBox.Width = Grid.ColumnDefinitions[0].ActualWidth - 10;
+            double width = Grid.ColumnDefinitions[0].ActualWidth - 10;
+            listBox.Width = width;
 
             return true;
         }
